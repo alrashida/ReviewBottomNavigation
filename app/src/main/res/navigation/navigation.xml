@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.mysus.reviewbottomnavigation.Fragment.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_prestasiFragment"
+            app:destination="@id/prestasiFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/founderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.mysus.reviewbottomnavigation.Fragment.Gallery.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_detailGalleryFragment"
+            app:destination="@id/detailGalleryFragment"
+            app:enterAnim="@anim/anime"
+            app:exitAnim="@anim/anime2" />
+    </fragment>
+    <fragment
+        android:id="@+id/prestasiFragment"
+        android:name="com.mysus.reviewbottomnavigation.Fragment.PrestasiFragment"
+        android:label="fragment_prestasi"
+        tools:layout="@layout/fragment_prestasi" />
+    <fragment
+        android:id="@+id/founderFragment"
+        android:name="com.mysus.reviewbottomnavigation.Fragment.FounderFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/detailGalleryFragment"
+        android:name="com.mysus.reviewbottomnavigation.Fragment.Gallery.DetailGalleryFragment"
+        android:label="fragment_detail_gallery"
+        tools:layout="@layout/fragment_detail_gallery" >
+        <argument
+            android:name="judul"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="descdetail"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="gbrdetail"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="hargadetail"
+            app:argType="integer"
+            android:defaultValue="0" />
+
+        <action
+            android:id="@+id/action_detailGalleryFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/galleryFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
